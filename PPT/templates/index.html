@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Pedra, Papel, Tesoura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: center;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Placar:</h3>
+    <p>Jogador 1: {{ placar1 }}</p>
+    <p>Jogador 2: {{ placar2 }}</p>
+
+    <form method="POST">
+        <div>
+            <h3>Jogador 1:</h3>
+            <button type="submit" name="jogador1_escolha" value="pedra">Pedra</button>
+            <button type="submit" name="jogador1_escolha" value="papel">Papel</button>
+            <button type="submit" name="jogador1_escolha" value="tesoura">Tesoura</button>
+        </div>
+
+        <div>
+            <h3>Jogador 2:</h3>
+            <button type="submit" name="jogador2_escolha" value="pedra">Pedra</button>
+            <button type="submit" name="jogador2_escolha" value="papel">Papel</button>
+            <button type="submit" name="jogador2_escolha" value="tesoura">Tesoura</button>
+        </div>
+
+        <!-- Botão para ver o resultado -->
+        <input type="submit" name="ver_resultado" value="Ver Resultado">
+    </form>
+
+    {% if res %}
+    <div id="resultado">
+        <p>Resultado: {{ res }}</p>
+        <p>Jogador 1 escolheu: {{ jogador1_escolha }}</p>
+        <p>Jogador 2 escolheu: {{ jogador2_escolha }}</p>
+    </div>
+    {% endif %}
+
+</body>
+</html>
